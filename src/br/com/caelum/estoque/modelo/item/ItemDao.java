@@ -32,8 +32,10 @@ public class ItemDao {
 		for(Filtro filtro : filtros) {
 			for (Item item : todosItens) {
 				
-				String tipo = filtro.getTipo().getNome();
+				String tipo = filtro.getTipo() == null ? null : filtro.getTipo().getNome();
 				String nome = filtro.getNome();
+				
+				System.out.println(filtro.getNome() + " - " + filtro.getTipo());
 				
 				if(itemPossuiTipo(item, tipo) && itemPossuiNome(item, nome)){
 					resultados.add(item);
